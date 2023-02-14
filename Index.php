@@ -25,12 +25,12 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Psr\Log\LoggerInterface $logger
      */
-    public function __construct(
-        \Magecomp\Extrafee\Helper\Data $dataHelper,
-        \Magento\Checkout\Model\Session $checkoutSession,
-        \Psr\Log\LoggerInterface $logger
+public function __construct(
+\Magecomp\Extrafee\Helper\Data $dataHelper,
+\Magento\Checkout\Model\Session $checkoutSession,
+    \Psr\Log\LoggerInterface $logger
 
-    )
+)
     {
 $this->dataHelper = $dataHelper;
  $this->checkoutSession = $checkoutSession;
