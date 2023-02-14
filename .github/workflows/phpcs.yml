@@ -1,11 +1,11 @@
 on: pull_request
 
-name: Inspections
+name: "Coding Standard"
+description: "A Github Action that runs the Magento Coding Standard."
+
 secrets:
-  GH_BOT_TOKEN:
-     required: true
-     default: "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"
-     description: "PHP version used to do the coding standard check."
+  GH_BOT_TOKEN: "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"
+
 jobs:
   runPHPCSInspection:
     name: Run PHPCS inspection
