@@ -41,8 +41,10 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
     /**
      * @return array
      */
+    //There is new rgjknrfk
     public function getConfig()
     {
+        //This is for testing sdjvn
         $ExtrafeeConfig = [];
         $enabled = $this->dataHelper->isModuleEnabled();
         $minimumOrderAmount = $this->dataHelper->getMinimumOrderAmount();
