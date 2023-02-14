@@ -32,9 +32,9 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
 
     )
     {
-        $this->dataHelper = $dataHelper;
-        $this->checkoutSession = $checkoutSession;
-        $this->logger = $logger;
+$this->dataHelper = $dataHelper;
+ $this->checkoutSession = $checkoutSession;
+ $this->logger = $logger;
         
     }
 
@@ -42,18 +42,18 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
      * @return array
      */
     //There is new rgjknrfk
-    public function getConfig()
-    {
-        //This is for testing sdjvn
-        $ExtrafeeConfig = [];
-        $enabled = $this->dataHelper->isModuleEnabled();
-        $minimumOrderAmount = $this->dataHelper->getMinimumOrderAmount();
-        $ExtrafeeConfig['fee_label'] = $this->dataHelper->getFeeLabel();
-        $quote = $this->checkoutSession->getQuote();
-        $subtotal = $quote->getSubtotal();
-        $ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
-        $ExtrafeeConfig['show_hide_Extrafee_block'] = ($enabled && ($minimumOrderAmount <= $subtotal) && $quote->getFee()) ? true : false;
-        $ExtrafeeConfig['show_hide_Extrafee_shipblock'] = ($enabled && ($minimumOrderAmount <= $subtotal)) ? true : false;
-        return $ExtrafeeConfig;
+public function getConfig()
+{
+//This is for testing sdjvn
+$ExtrafeeConfig = [];
+ $enabled = $this->dataHelper->isModuleEnabled();
+ $minimumOrderAmount = $this->dataHelper->getMinimumOrderAmount();
+$ExtrafeeConfig['fee_label'] = $this->dataHelper->getFeeLabel();
+$quote = $this->checkoutSession->getQuote();
+$subtotal = $quote->getSubtotal();
+$ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
+$ExtrafeeConfig['show_hide_Extrafee_block'] = ($enabled && ($minimumOrderAmount <= $subtotal) && $quote->getFee()) ? true : false;
+$ExtrafeeConfig['show_hide_Extrafee_shipblock'] = ($enabled && ($minimumOrderAmount <= $subtotal)) ? true : false;
+return $ExtrafeeConfig;
     }
 }
