@@ -35,6 +35,7 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
         $this->dataHelper = $dataHelper;
         $this->checkoutSession = $checkoutSession;
         $this->logger = $logger;
+        
     }
 
     /**
