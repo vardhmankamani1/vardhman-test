@@ -17,3 +17,4 @@ jobs:
         PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
       with:
         args: "PHPCompatibility"
+
