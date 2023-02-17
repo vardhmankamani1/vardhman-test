@@ -9,7 +9,7 @@ jobs:
       - uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
-            +(src|__tests__)/**/*.ts
+            +(__tests__)/**/*.php
             !src/exclude.ts
           FILES: |
             yarn.lock
