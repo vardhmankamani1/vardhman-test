@@ -8,12 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v6
         with:
-          PATTERNS: |
-            +(__tests__)/**/*.php
-            !src/exclude.ts
-          FILES: |
-            yarn.lock
-            .eslintrc
+          PATTERNS: '*.php'
       - name: Install Package dependencies
         run: yarn install
         if: env.GIT_DIFF
