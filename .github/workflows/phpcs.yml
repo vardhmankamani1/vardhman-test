@@ -16,3 +16,12 @@ jobs:
         # Check only if there are differences in the source code
         run: yarn lint
         if: env.GIT_DIFF
+      - name: Check code style
+        # Check only source files with differences
+        run: yarn eslint ${{ env.GIT_DIFF_FILTERED }}  # e.g. yarn eslint 'src/main.ts' '__tests__/test.ts'
+        if: env.GIT_DIFF && !env.MATCHED_FILES
+      - name: Check code style
+        # Check only if there are differences in the source code (Run a lint on all files if there are changes to yarn.lock or .eslintrc)
+        run: yarn lint
+        if: env.GIT_DIFF && env.MATCHED_FILES
+        
