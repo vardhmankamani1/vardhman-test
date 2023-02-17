@@ -1,20 +1,23 @@
 on: pull_request
-
-name: Inspections
+name: CI
 jobs:
-  runPHPCSInspection:
-    name: Run PHPCS inspection
+  eslint:
+    name: ESLint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
-    - name: PHPCS Code Review
-      uses: rtCamp/action-phpcs-code-review@v2.1.0
-      env:
-        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
-        SKIP_FOLDERS: "tests,.github"
-        PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
-      with:
-        args: "PSR2"
-
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            +(src|__tests__)/**/*.ts
+            !src/exclude.ts
+          FILES: |
+            yarn.lock
+            .eslintrc
+      - name: Install Package dependencies
+        run: yarn install
+        if: env.GIT_DIFF
+      - name: Check code style
+        # Check only if there are differences in the source code
+        run: yarn lint
+        if: env.GIT_DIFF
