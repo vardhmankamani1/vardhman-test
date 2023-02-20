@@ -51,7 +51,7 @@ $ExtrafeeConfig = [];
 $ExtrafeeConfig['fee_label'] = $this->dataHelper->getFeeLabel();
 $quote = $this->checkoutSession->getQuote();
 $test= $this->checkoutSession->getTesting();
-$subtotal = $quote->getSubtotal();
+$subtotal = $quote->getSubtotal()   ;
 $ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
 $ExtrafeeConfig['show_hide_Extrafee_block'] = ($enabled && ($minimumOrderAmount <= $subtotal) && $quote->getFee()) ? true : false;
 $ExtrafeeConfig['show_hide_Extrafee_shipblock'] = ($enabled && ($minimumOrderAmount <= $subtotal)) ? true : false;
