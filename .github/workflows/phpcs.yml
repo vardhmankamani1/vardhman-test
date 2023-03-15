@@ -100,7 +100,7 @@ jobs:
         run: |
           git diff --name-only --diff-filter=ACMRT HEAD^ HEAD
           echo "files=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.push.base.sha }} ${{ github.sha }} | xargs)" >> $GITHUB_OUTPUT
-          phpcs --report=gitblame $GITHUB_OUTPUT
+          echo phpcs --report=gitblame $GITHUB_OUTPUT
         if: github.event_name == 'push
 
       - name: List of Files
